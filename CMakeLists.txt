@@ -4,7 +4,6 @@ project (libmp3lame)
 
 
 add_definitions(-DHAVE_STDINT_H)
-add_definitions(-DSTDC_HEADERS)
 add_definitions(-DHAVE_MPGLIB)
 
 if((${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC))
@@ -15,6 +14,7 @@ add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-D_CRT_SECURE_NO_DEPRECATED)
 configure_file(configMS.h config.h @ONLY)
 else()
+add_definitions(-DSTDC_HEADERS)
 if(NOT ieee754_float32_t)
 add_definitions(-Dieee754_float32_t=float)
 endif()
