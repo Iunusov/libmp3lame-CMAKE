@@ -7,10 +7,6 @@ add_definitions(-DHAVE_STDINT_H)
 add_definitions(-DSTDC_HEADERS)
 add_definitions(-DHAVE_MPGLIB)
 
-if(NOT ieee754_float32_t)
-add_definitions(-Dieee754_float32_t=float)
-endif()
-
 if((${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC))
 add_definitions(-DUSE_LAYER_2)
 add_definitions(-DTAKEHIRO_IEEE754_HACK)
@@ -18,8 +14,11 @@ add_definitions(-DHAVE_CONFIG_H)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-D_CRT_SECURE_NO_DEPRECATED)
 configure_file(configMS.h config.h @ONLY)
+else()
+if(NOT ieee754_float32_t)
+add_definitions(-Dieee754_float32_t=float)
 endif()
-
+endif()
 
 set(SOURCE_LIB
 ${CMAKE_CURRENT_SOURCE_DIR}/libmp3lame/bitstream.c 
