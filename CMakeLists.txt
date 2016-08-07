@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.0)
 
 project (libmp3lame)
 
+if(WIN32)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Dll)
+endif()
 
 add_definitions(-DHAVE_STDINT_H)
 add_definitions(-DHAVE_MPGLIB)
@@ -52,6 +55,8 @@ ${CMAKE_CURRENT_SOURCE_DIR}/mpglib/layer3.c
 ${CMAKE_CURRENT_SOURCE_DIR}/mpglib/tabinit.c)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libmp3lame)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/mpglib)
