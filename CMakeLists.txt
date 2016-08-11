@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project (libmp3lame)
+project (mp3lame)
 
 if(WIN32)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Dll)
