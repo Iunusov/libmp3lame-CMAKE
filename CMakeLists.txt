@@ -8,10 +8,12 @@ endif()
 
 add_definitions(-DHAVE_STDINT_H)
 add_definitions(-DHAVE_MPGLIB)
+add_definitions(-DDECODE_ON_THE_FLY)
+add_definitions(-DUSE_FAST_LOG)
+add_definitions(-DTAKEHIRO_IEEE754_HACK)
 
 if((${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC))
 add_definitions(-DUSE_LAYER_2)
-add_definitions(-DTAKEHIRO_IEEE754_HACK)
 add_definitions(-DHAVE_CONFIG_H)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-D_CRT_SECURE_NO_DEPRECATED)
